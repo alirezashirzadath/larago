@@ -1,0 +1,34 @@
+{{template "base" .}}
+
+{{define "title"}}Submit{{end}}
+{{define "content"}}
+    <form action="" method="post" class="flex flex-col items-center justify-center min-h-screen w-screen bg-blue-100">
+        <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+        <div class="flex flex-col gap-6 px-8 py-16 rounded-lg bg-white shadow-lg shadow-black/5 w-[30%] items-center justify-start ">
+            <span class="text-lg font-bold">Submit form</span>
+            <div class="flex flex-col w-[80%]  mb-1  items-start justify-center   ">
+                <span class="mb-1">Username</span>
+                <input name="username"
+                       class="outline-none w-full px-4 focus:border-black/80 py-2 border-2 rounded-lg border-black/20"
+                       type="text">
+            </div>
+            <div class="flex flex-col w-[80%] mb-1  items-start justify-center   ">
+                <span class="mb-1">Password</span>
+                <input name="password"
+                       class="outline-none w-full px-4 focus:border-black/80 py-2 border-2 rounded-lg border-black/20"
+                       type="password">
+            </div>
+            <button class="w-[80%] mt-3 hover:opacity-90 cursor-pointer items-center justify-center bg-blue-500 py-2 rounded-lg text-white">
+                Register
+            </button>
+            <div class="flex w-[80%] flex-col items-center justify-start text-red-600">
+                {{range $item := .ValidationErrors}}
+                    {{range $error := $item}}
+                        <span>{{$error}}</span>
+                    {{end}}
+                {{end}}
+            </div>
+        </div>
+
+    </form>
+{{end}}
