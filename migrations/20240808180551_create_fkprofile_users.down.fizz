@@ -1,0 +1,2 @@
+drop_foreign_key("profiles","profiles_users_id_fk")
+drop_index("profiles","profiles_user_id_idx")

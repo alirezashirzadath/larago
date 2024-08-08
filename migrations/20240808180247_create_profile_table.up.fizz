@@ -1,0 +1,7 @@
+create_table("profiles") {
+ t.Column("id","integer",{primary:true})
+ t.Column("user_id","integer",{})
+ t.Column("thumbnail","string",{})
+ t.Column("phone_number","string",{null:true})
+
+}
